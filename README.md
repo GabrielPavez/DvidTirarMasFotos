@@ -1,18 +1,30 @@
 Este proyecto es un prototipo para la asignatura de Programación Android. La aplicación demuestra el uso de Intents para navegar entre pantallas y conectarse con otras aplicaciones del sistema, como por ejemplo: el navegador, la cámara y los mapas.
+
 🛠️ Información Técnica
 Android Gradle Plugin (AGP): 8.12.0
 Compile SDK: 36
 Min SDK: 31
+
 ✨ Funcionalidades Principales
+
 Intents Explícitos (Navegación Interna)
+
 Login a Home: Al iniciar sesión con estudiante@st.cl y 123456, la app navega a la pantalla principal.
+
 Home a Ayuda: Al presionar el "tile" de Ayuda, se abre la pantalla de ayuda interna.
+
 Home a Perfil: Al presionar el menú (tres puntos) y luego Perfil, se abre la pantalla de perfil con el email del usuario.
+
 Intents Implícitos (Interacción con el Sistema)
+
 Abrir Página Web: El "tile" de GitHub abre el perfil del desarrollador en el navegador.
+
 Abrir Mapa: El "tile" de Mapa abre la app de mapas con una ubicación predefinida.
+
 Enviar Correo: El "tile" de Correo abre la app de email con datos listos para enviar.
+
 Tomar Fotografía: El "tile" de Tomar Fotografía abre la cámara y guarda la foto en la galería del dispositivo. 
+
 Realizar Llamada: El "tile" de Llamar abre el marcador del teléfono con un número listo.
 
 📸 Capturas de Pantalla
