@@ -14,13 +14,17 @@ Abrir Mapa: El "tile" de Mapa abre la app de mapas con una ubicación predefinid
 Enviar Correo: El "tile" de Correo abre la app de email con datos listos para enviar.
 Tomar Fotografía: El "tile" de Tomar Fotografía abre la cámara y guarda la foto en la galería del dispositivo. 
 Realizar Llamada: El "tile" de Llamar abre el marcador del teléfono con un número listo.
+
 📸 Capturas de Pantalla
 Login
 <img width="529" height="967" alt="image" src="https://github.com/user-attachments/assets/0e160754-325a-4b33-b7df-14c50931b147" />
+
 Menú Principal
 <img width="533" height="967" alt="image" src="https://github.com/user-attachments/assets/2685b7dd-c800-4f04-933f-580cfa139847" />
+
 Ayuda
 <img width="525" height="961" alt="image" src="https://github.com/user-attachments/assets/7db6759d-9577-4eca-bb9f-81dec683a3f7" />
+
 Perfil
 <img width="524" height="956" alt="image" src="https://github.com/user-attachments/assets/8657317f-f8c5-4515-a8df-2ddb574d828a" />
 📦 ¿Cómo ejecutar el proyecto?
