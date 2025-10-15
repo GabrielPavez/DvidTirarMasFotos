@@ -7,76 +7,69 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.util.Patterns;
-
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+// Esta es la pantalla (Activity) que controla la vista de inicio de sesión.
 public class LoginActivity extends AppCompatActivity {
 
-    //Creamos variables
+    // Variables para los campos de texto y el botón del diseño.
     private EditText edtEmail, edtPass;
     private Button btnLogin;
-
+    
+    // Se ejecuta al crear la pantalla. Aquí se configura el diseño y los eventos de clic.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
+        EdgeToEdge.enable(this); // Permite que la app ocupe toda la pantalla.
+        setContentView(R.layout.activity_login); // Conecta este código con su diseño XML.
 
-
+        // Se enlaza cada variable con su respectivo elemento en el diseño XML.
         edtEmail = findViewById(R.id.edtEmail);
         edtPass  = findViewById(R.id.edtPass);
         btnLogin = findViewById(R.id.btnLogin);
 
-        btnLogin.setOnClickListener(v -> intentoInicioSesion());
+        // Se define qué sucede cuando el usuario presiona los botones o textos.
+        btnLogin.setOnClickListener(v -> intentoInicioSesion()); // Llama a la función de login.
         findViewById(R.id.tvRecuperarpass).setOnClickListener(v ->
                 Toast.makeText(this, "Función pendiente: recuperar contraseña", Toast.LENGTH_SHORT).show());
         findViewById(R.id.tvCrear).setOnClickListener(v ->
                 Toast.makeText(this, "Función pendiente: crear cuenta", Toast.LENGTH_SHORT).show());
     }
 
+    // Contiene toda la lógica para validar los datos y permitir el acceso.
     private void intentoInicioSesion() {
-        String email = edtEmail.getText() != null ? edtEmail.getText().toString().trim() : "";
-        String pass  = edtPass.getText()  != null ? edtPass.getText().toString() : "";
+        // Se obtienen los textos ingresados por el usuario.
+        String email = edtEmail.getText().toString().trim();
+        String pass  = edtPass.getText().toString();
 
+        // Se comprueba que el correo y la contraseña no estén vacíos y cumplan los requisitos.
         if (TextUtils.isEmpty(email)) {
             edtEmail.setError("Ingresa tu correo");
-            edtEmail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edtEmail.setError("Correo inválido");
-            edtEmail.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(pass)) {
             edtPass.setError("Ingresa tu contraseña");
-            edtPass.requestFocus();
             return;
         }
         if (pass.length() < 6) {
             edtPass.setError("Mínimo 6 caracteres");
-            edtPass.requestFocus();
             return;
         }
 
-        // Simulación de login
+        // Se comprueba si el correo y la contraseña son los correctos.
         boolean ok = email.equals("estudiante@st.cl") && pass.equals("123456");
         if (ok) {
             Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
 
-            // Ir al nuevo Activity
+            // Se prepara y ejecuta la navegación a la pantalla principal (HomeActivity).
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-
-            // Enviamos el email al Home
             intent.putExtra("email_usuario", email);
             startActivity(intent);
-
-            // Cerrar la pantalla de login para que no vuelva atrás con "Back"
             finish();
         } else {
             Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
